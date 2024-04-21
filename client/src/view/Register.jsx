@@ -37,7 +37,7 @@ const Login = () => {
         let client = new useClient();
         client.register(values)
             .then((response) => {
-                navigate('/')
+                navigate('/login')
             })
             .catch((error) => {
                 if (error.response) {

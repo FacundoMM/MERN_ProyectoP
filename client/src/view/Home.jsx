@@ -1,6 +1,7 @@
 import React from 'react'
 import useClient from '../hook/useClient'
 import { NavLink, useNavigate } from 'react-router-dom';
+import Navegador from "./Navegador";
 
 
 const Home = () => {
@@ -22,6 +23,8 @@ const Home = () => {
 
   return (
     <div>
+      <Navegador />
+
       <h1 className='text-center'>VISTA DE LA HOME CUANDO YA ESTAS LOGIN</h1>
       <button type="button" onClick={logout}>Logout</button>
       <NavLink className="nav-link active"  to="/user">Pagina para user</NavLink >

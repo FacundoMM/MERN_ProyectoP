@@ -3,7 +3,8 @@ import Login from "./view/Login"
 import Register from "./view/Register"
 import Home from "./view/Home";
 import Owner from "./view/HomeOwner"
-import User from "./view/HomeUser"
+import Turnos from "./view/Turnos"
+import Detalles from "./view/Detalles"
 import { PrivateRoutes, PublicRoutes } from "./components/Route";
 
 
@@ -19,13 +20,10 @@ function App() {
               <Owner />
             </PrivateRoutes>
           } />
-          <Route path="/user" element={
-            <PublicRoutes>
-              <User />
-            </PublicRoutes>
-          } />
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Login />} />
+            <Route path="/turnos" element={<PublicRoutes><Turnos /></PublicRoutes>} />
+            <Route path="/turnos/:id" element={<PublicRoutes><Detalles />  </PublicRoutes>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>

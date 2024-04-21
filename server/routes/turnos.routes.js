@@ -12,6 +12,3 @@ module.exports = app => {
   app.post('/api/turnos/:id/detalles', TurnosController.createNewDetalleForTurno);
   app.delete('/api/turnos/:id', TurnosController.deleteAnExistingTurno);
 };
-
-
-

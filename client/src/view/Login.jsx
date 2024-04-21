@@ -27,7 +27,7 @@ const Login = () => {
             .then((response) => {
                 sessionStorage.setItem("login", response.data.user.email);
                 sessionStorage.setItem("rol", response.data.user.__t);
-                navigate("/home")
+                navigate("/")
             })
             .catch((error) => {
                 if (error.response) {

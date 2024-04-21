@@ -17,9 +17,9 @@ class useTurnos {
     }
 
     adquirir(turnoId, detalleId, gmail){
-        return this.instance.post(`/${turnoId}/detalles/${detalleId}`, {gmail})
+        return this.instance.put(`/${turnoId}/detalles/${detalleId}`, {'user': gmail})
     }
-
+    
     newTurnos(values){
         return this.instance.post("", values)
     }
