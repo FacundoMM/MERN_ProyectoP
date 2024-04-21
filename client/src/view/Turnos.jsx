@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import useTurnos from '../hook/useTurnos'
 import Navegador from './Navegador';
+import Editor from "./Editor"
+import { PrivateRoutes } from "../components/Route";
 
 const Home = () => {
   const turnos = new useTurnos()
   const [datosTurnos, setDatosTurnos] = useState([])
-  
+
   const Owner = () => {
     const userRole = sessionStorage.getItem('rol');
     const isOwner = userRole === 'Owner'
     return isOwner ?
-      <button className="btn btn-outline-danger" type="submit">Eliminar</button> 
+      <button className="btn btn-outline-danger" type="submit">Eliminar</button>
       : '';
   }
 
@@ -29,7 +31,10 @@ const Home = () => {
   return (
     <div>
       <Navegador />
-      <h1 className='text-center my-3'>Turnos disponibles</h1>
+      <PrivateRoutes>
+        <Editor />
+      </PrivateRoutes>
+      <h1 className='text-center my-3'>Especialidades médicas disponibles</h1>
       <table className="table">
         <thead className="thead-dark">
           <tr>
@@ -48,7 +53,7 @@ const Home = () => {
                   <button className="btn btn-outline-success mx-3" type="submit">
                     <NavLink className="nav-link" to={`./${turnos._id}`}>Detalles</NavLink >
                   </button>
-                    {Owner()}
+                  {Owner()}
                 </td>
               </tr>
             ))

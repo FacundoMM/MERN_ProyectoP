@@ -8,7 +8,7 @@ const userRole = sessionStorage.getItem('rol');
 const PrivateRoutes = ({ children }) => {
   const isOwner = userRole === 'Owner';
 
-  return isOwner ? <>{children}</> : <Navigate to="/" />;
+  return isOwner ? <>{children}</> : '';
 };
 
 const PublicRoutes = ({ children }) => {

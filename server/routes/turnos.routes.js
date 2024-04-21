@@ -4,6 +4,7 @@ module.exports = app => {
 
   //rutas para el user
   app.get('/api/turnos', TurnosController.findAllTurnos);
+  app.get('/api/detalles', TurnosController.findAllDetalles);
   app.get('/api/turnos/:id/detalles', TurnosController.findDetallesForTurno);
   app.put('/api/turnos/:turnoId/detalles/:detalleId', TurnosController.updateDetalleForTurno);
 

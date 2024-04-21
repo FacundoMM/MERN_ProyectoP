@@ -12,6 +12,10 @@ class useTurnos {
         return this.instance.get()
     }
 
+    allDetalle(){
+        return this.instance.get('../detalles')
+    }
+
     detalles(id){
         return this.instance.get(`/${id}/detalles`)
     }
@@ -25,11 +29,11 @@ class useTurnos {
     }
 
     newDetalle(id, values){
-        return this.instance.post(`/api/turnos/${id}/detalles`, values)
+        return this.instance.post(`/${id}/detalles`, values)
     }
 
     deleteTurno(id){
-        return this.instance.delete(`/api/turnos/${id}`)
+        return this.instance.delete(`/${id}`)
     }
 }
 

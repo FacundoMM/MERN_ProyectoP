@@ -10,7 +10,7 @@ const Navegador = () => {
         client.logout()
           .then((response) => {
             sessionStorage.clear()
-            navigate("/")
+            navigate("/login")
           })
           .catch((error) => {
             if (error.response) {
@@ -48,7 +48,7 @@ const Navegador = () => {
                                 <NavLink className="nav-link" to="/turnos">Buscar citas</NavLink >
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/historial">Mis citas</NavLink >
+                                <NavLink className="nav-link" to="/misturnos">Mis citas</NavLink >
                             </li>
                         </ul>
                         <div className="d-flex">

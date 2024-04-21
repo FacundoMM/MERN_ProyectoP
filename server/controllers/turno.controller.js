@@ -7,6 +7,17 @@ module.exports.findAllTurnos = (req, res) => {
         .catch(err => res.status(500).json({ message: "Something went wrong with turnos", error: err }));
 };
 
+//Encuentra todos los detalles
+module.exports.findAllDetalles = (req, res) => {
+    TurnosModel.find({}, 'detalles') 
+        .then(turnos => {
+            const detalles = turnos.reduce((acc, turno) => acc.concat(turno.detalles), []);
+            res.json({ detalles });
+        })
+        .catch(err => res.status(500).json({ message: "Something went wrong with turnos", error: err }));
+};
+
+
 //Encuentra todos los detalles que tiene un codigo
 module.exports.findDetallesForTurno = (req, res) => {
     TurnosModel.findById(req.params.id)
