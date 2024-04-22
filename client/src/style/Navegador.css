@@ -1,0 +1,37 @@
+
+.Cuerpo_nav{
+     background-color: rgba(236, 229, 229, 0.948);
+}
+
+.navegador{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 4%;
+   
+}   
+.navegador_titulo{
+    font-style: italic;    
+}
+
+
+.link{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.Contenido_listado{
+    display: flex;
+    list-style-type: none;
+    gap: 13px;
+    align-items: center;
+}
+.boton{
+    padding: 10px 10px;
+    border-radius: 8px;
+    background-color: rgb(114, 93, 93);
+    font-weight: 500;
+    font-size: .9em;
+    border: none;
+    color: white;
+}

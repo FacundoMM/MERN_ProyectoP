@@ -53,7 +53,7 @@ module.exports.createNewDetalleForTurno = (req, res) => {
         .catch(err => res.status(500).json({ message: "Something went wrong with turnos", error: err }));
 };
 
-//Agrega el id del usuario que adquirio el turno (ARREGLAR)
+//Agrega el id del usuario que adquirio el turno
 module.exports.updateDetalleForTurno = (req, res) => {
     TurnosModel.findOneAndUpdate(
         { _id: req.params.turnoId, "detalles._id": req.params.detalleId },
