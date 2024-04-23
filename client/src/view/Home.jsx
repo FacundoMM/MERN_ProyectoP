@@ -4,15 +4,13 @@ import atencion from '../public/atencion.jpg';
 import programacion from '../public/programacion.jpg';
 
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import useClient from '../hook/useClient'
 import { NavLink, useNavigate } from 'react-router-dom';
 import Navegador from "./Navegador";
 
 
 const Home = () => {
-
-  const navigate = useNavigate()
 
 
   return (
@@ -27,7 +25,7 @@ const Home = () => {
               puedes acceder a nuestro sistema intuitivo para encontrar el médico adecuado,
               reservar tu cita y mantener un seguimiento de tus compromisos médicos.</p>
             <p>Únete a nosotros en este viaje hacia una salud más cuidadosa y preparada</p>
-            <button type='button'><NavLink to='/Login' className='links'>Iniciar sesion</NavLink></button>
+            <button type='button' className='boton-alternativo'><NavLink to='/Login' className='links'>Iniciar sesion</NavLink></button>
           </div>
         </section>
 
@@ -53,7 +51,7 @@ const Home = () => {
               <p>Conozca a nuestros médicos especialistas calificados.</p>
             </div>
 
-            <div className="especialidades_cartas">
+            <div className="especialidades_cartas ">
               <img src={programacion} alt="Doctores calificados" />
               <div>
                 <h4>Programación sencilla</h4>

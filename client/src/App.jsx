@@ -9,7 +9,7 @@ import User from "./view/User";
 import { PublicRoutes } from "./components/Route";
 
 function App() {
-
+    
 
   return (
     <>

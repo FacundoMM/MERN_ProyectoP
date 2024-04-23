@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 
 * {
@@ -7,12 +7,13 @@
     box-sizing: border-box;
     font-family: "Open Sans";
 }
+
 p {
     font-size: 14px;
     color: dimgrey;
 }
 
-body{
+body {
     background-image: url(../public/spattern-estilo-sencillo-2gper6h.jpg);
     background-size: 200px;
     background-position: center;
@@ -21,6 +22,7 @@ body{
 .cuerpo {
     margin: 0 4%;
     background-color: rgb(236, 229, 229);
+    min-height: 90vh;
 }
 
 .portada {
@@ -29,7 +31,7 @@ body{
     background-position: center;
 }
 
-.portadaText{
+.portadaText {
     display: flex;
     width: 45%;
     flex-direction: column;
@@ -46,20 +48,19 @@ body{
 .portadaText p {
     margin: 10px 0;
     color: rgb(56, 53, 53);
-    
+
 }
 
 .portadaText button {
     margin: 20px 10px;
     padding: 10px 10px;
     border-radius: 8px;
-    background-color: rgb(114, 93, 93);
     font-weight: 500;
     font-size: .9em;
     border: none;
 }
 
-.links{
+.links {
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
@@ -67,32 +68,35 @@ body{
 .nosotros {
     margin: 20px 0;
 }
-.nosotros h4{
+
+.nosotros h4 {
     margin: 30px 0;
     text-align: center;
 }
 
-.descripcion{
+.descripcion {
     display: flex;
 }
 
-.descripcion > p {
+.descripcion>p {
     width: 180vw;
-    margin: 0 20px;
+    margin: 0 10px 0 20px;
+    height: 28vh;
+    padding: 40px;
 }
 
 
-.especialidades{
+.especialidades {
     text-align: center;
 }
 
-.especialidades_cuerpo{
-display: flex;
-justify-content: space-evenly;
-margin: 30px 0;
+.especialidades_cuerpo {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0;
 }
 
-.especialidades_cartas  {
+.especialidades_cartas {
     width: 28%;
     background-color: rgb(213, 207, 207);
     border-radius: 3px;

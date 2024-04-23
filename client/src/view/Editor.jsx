@@ -1,3 +1,5 @@
+import '../style/Editor.css'
+
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useParams } from "react-router-dom"
@@ -11,7 +13,7 @@ const validationSchemaTurno = Yup.object({
     .required('Debe agregarle un area')
     .min(3, 'Debe tener al menos 3 caracteres'),
   name: Yup.string()
-    .required('Debe agregarle el nombre del profecional')
+    .required('Debe agregarle el nombre')
     .min(3, 'Debe tener al menos 3 caracteres'),
 })
 
@@ -51,19 +53,19 @@ const Agregar = () => {
     >
       {({ isSubmitting }) => (
         <>
-          <h1 className='text-center'>Agregar un especialidades médicas</h1>
-          <Form className='text-center row'>
-            <div className="my-3 col">
-              <Field type="text" name="area" placeholder="Area:" />
-              <ErrorMessage name="area" component="div" className="text-danger" />
+          <h3 className='text-center'>Agregar un especialidades médicas</h3>
+          <Form className='especialidades_cuerpo'>
+            <div>
+              <Field type="text" name="area" placeholder="Area:" className='inputs' />
+              <ErrorMessage name="area" component="div" className="text-danger"  />
 
             </div>
-            <div className="my-3 col">
-              <Field type="text" name="name" placeholder="Nombre del profecional:" />
+            <div>
+              <Field type="text" name="name" placeholder="Nombre del profecional:" className='inputs' />
               <ErrorMessage name="name" component="div" className="text-danger" />
             </div>
-            <div className="my-3 col">
-              <button type="submit" className="btn btn-primary">Agregar</button>
+            <div>
+              <button type="submit" className="boton">Agregar</button>
             </div>
           </Form>
         </>
@@ -95,21 +97,22 @@ const Agregar = () => {
     >
       {({ isSubmitting }) => (
         <>
-          <h1 className='text-center'>Agregar un aturno</h1>
-          <Form className='text-center row'>
+          <h3 className='text-center'>Agregar un aturno</h3>
 
-            <div className="my-3 col">
-              <Field type="date" name="date" placeholder="Fecha:" />
+          <Form className='especialidades_cuerpo'>
+
+            <div>
+              <Field type="date" name="date" placeholder="Fecha:" className='inputs'/>
               <ErrorMessage name="date" component="div" className="text-danger" />
             </div>
 
-            <div className="my-3 col">
-              <Field type="hour" name="hour" placeholder="Hora: 24h" />
+            <div >
+              <Field type="hour" name="hour" placeholder="Hora: 24h" className='inputs'/>
               <ErrorMessage name="hour" component="div" className="text-danger" />
             </div>
 
-            <div className="my-3 col">
-              <button type="submit" className="btn btn-primary">Agregar turno</button>
+            <div>
+              <button type="submit" className="boton">Agregar turno</button>
             </div>
           </Form>
         </>

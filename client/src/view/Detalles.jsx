@@ -1,3 +1,6 @@
+import '../style/Tabla.css'
+
+
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useTurnos from '../hook/useTurnos';
@@ -5,7 +8,7 @@ import Navegador from './Navegador';
 import Editor from './Editor';
 import { PrivateRoutes } from '../components/Route';
 
-const Home = () => {
+const Detalles = () => {
     const turnos = new useTurnos();
     const [datosDetalles, setDatosDetalles] = useState([]);
     const { id } = useParams();
@@ -26,16 +29,17 @@ const Home = () => {
     }, []);
 
     return (
-        <div>
+        <>  
             <Navegador />
+        <div className='cuerpo'>
             <PrivateRoutes>
                 <Editor />
             </PrivateRoutes>
 
-            <h1 className='text-center my-3'>Turnos disponibles</h1>
+            <h1 className='text-center py-3'>Turnos disponibles</h1>
             {hasCitas ? (
-                <table className="table">
-                    <thead className="thead-dark">
+                <table className="mx-auto">
+                    <thead>
                         <tr>
                             <th scope="col">Fecha</th>
                             <th scope="col">Hora</th>
@@ -50,7 +54,7 @@ const Home = () => {
                                     <td>{detalles.hour}</td>
                                     <td>
                                         <button
-                                            className="btn btn-outline-success mx-3"
+                                            className="boton"
                                             type="submit"
                                             onClick={() => {
                                                 console.log(gmail);
@@ -76,7 +80,8 @@ const Home = () => {
                 <p className="text-center">No hay turnos disponibles en este momento.</p>
             )}
         </div>
+        </>
     );
 };
 
-export default Home;
+export default Detalles;

@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from "yup"
@@ -6,20 +7,20 @@ import useClient from '../hook/useClient'
 
 const validationSchema = Yup.object({
     firstName: Yup.string()
-        .min(5)
-        .required(),
+        .min(5, 'Debe tener un minimo de  5 letras')
+        .required('Debe agregar su Nombre'),
     lastName: Yup.string()
-        .min(5)
-        .required(),
+        .min(5, 'Debe tener un minimo de  5 letras')
+        .required('Debe agregar su Apellido'),
     email: Yup.string()
-        .email()
-        .required(),
+        .email('Debe agregar un gmail valido')
+        .required('Debe agregar un gmail'),
     password: Yup.string()
-        .min(8)
-        .required(),
+        .min(8, 'Debe tener un minimo de 8 letras')
+        .required('Debe agragar una contraseña'),
     confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'confirmpassword must be like password')
-    .required(),
+    .oneOf([Yup.ref('password'), null], 'No coincide con su contraseña')
+    .required('Debe confirmar su contraseña'),
 })
 
 
@@ -91,7 +92,7 @@ const Login = () => {
                                         <ErrorMessage name="confirmPassword" component="div" className="text-danger" />
                                     </div>
                                     <div className="text-center">
-                                         <NavLink to='/' >Log in</NavLink>
+                                         <NavLink to='/login' >Log in</NavLink>
                                     </div>
                                     <div className="text-center mt-4 ">
                                         <button

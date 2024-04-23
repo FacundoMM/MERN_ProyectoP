@@ -1,3 +1,5 @@
+import '../style/Tabla.css'
+
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import useTurnos from '../hook/useTurnos'
@@ -13,7 +15,7 @@ const Home = () => {
     const userRole = sessionStorage.getItem('rol');
     const isOwner = userRole === 'Owner'
     return isOwner ?
-      <button className="btn btn-outline-danger" type="submit">Eliminar</button>
+      <button className="boton-alternativo" type="submit">Eliminar</button>
       : '';
   }
 
@@ -22,6 +24,7 @@ const Home = () => {
     turnos.turnos()
       .then((res) => {
         setDatosTurnos(res.data.turnos)
+        console.log(res.data.turnos)
       })
       .catch((err) => {
         console.log(err)
@@ -29,14 +32,15 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
+    <>
       <Navegador />
+    <div className="cuerpo">
       <PrivateRoutes>
         <Editor />
       </PrivateRoutes>
-      <h1 className='text-center my-3'>Especialidades médicas disponibles</h1>
-      <table className="table">
-        <thead className="thead-dark">
+      <h1 className='text-center py-3'>Especialidades médicas disponibles</h1>
+      <table className="mx-auto">
+        <thead >
           <tr>
             <th scope="col">Area</th>
             <th scope="col">Profecional</th>
@@ -50,7 +54,7 @@ const Home = () => {
                 <td>{turnos.area}</td>
                 <td>{turnos.name}</td>
                 <td>
-                  <button className="btn btn-outline-success mx-3" type="submit">
+                  <button className="boton" type="submit">
                     <NavLink className="nav-link" to={`./${turnos._id}`}>Detalles</NavLink >
                   </button>
                   {Owner()}
@@ -64,6 +68,7 @@ const Home = () => {
         </tbody>
       </table>
     </div>
+    </>
   )
 }
 

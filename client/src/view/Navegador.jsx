@@ -1,4 +1,5 @@
 import '../style/Navegador.css'
+import '../style/boton.css'
 
 
 import React from 'react'
@@ -13,7 +14,7 @@ const Navegador = () => {
         client.logout()
             .then((response) => {
                 sessionStorage.clear()
-                navigate("/login")
+                window.location.reload();
             })
             .catch((error) => {
                 if (error.response) {
@@ -23,13 +24,15 @@ const Navegador = () => {
     }
 
     const isLogin = () => {
-        const userRole = sessionStorage;
-        const isLogin = userRole === ''
+        const userRole = sessionStorage.length;
+        const isLogin = userRole === 0
         return isLogin ?
-            <button className="boton" type="submit">
+                        <button className="boton" type="submit">
                 <NavLink className="link" to="/login">Log in</NavLink >
             </button>
-            : <button className="boton" type="button" onClick={logout}>Logout</button>;
+            :
+            <button className="boton" type="button" onClick={logout}>Logout</button>
+
     }
 
     return (
@@ -40,20 +43,20 @@ const Navegador = () => {
                         <NavLink className="link" to="/">Hospiturno</NavLink >
                     </h1>
                 </div>
-                    <ul className="Contenido_listado">
-                        <li>
-                            <NavLink className="link" to="/">Inicio</NavLink >
-                        </li>
-                        <li>
-                            <NavLink className="link" to="/turnos">Buscar citas</NavLink >
-                        </li>
-                        <li>
-                            <NavLink className="link" to="/misturnos">Mis citas</NavLink >
-                        </li>
-                        <li>
-                            {isLogin()}
-                        </li>
-                    </ul>
+                <ul className="Contenido_listado">
+                    <li>
+                        <NavLink className="link" to="/">Inicio</NavLink >
+                    </li>
+                    <li>
+                        <NavLink className="link" to="/turnos">Buscar citas</NavLink >
+                    </li>
+                    <li>
+                        <NavLink className="link" to="/misturnos">Mis citas</NavLink >
+                    </li>
+                    <li>
+                        {isLogin()}
+                    </li>
+                </ul>
 
             </nav>
         </div>
